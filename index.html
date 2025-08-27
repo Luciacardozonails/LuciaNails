@@ -36,7 +36,7 @@
     <section id="inicio" class="hero">
         <div class="hero-content">
             <h2>Transformamos tus uñas en obras de arte</h2>
-            <p>Servicios profesionales de esmaltado semipermanente, uñas acrílicas y nail art</p>
+            <p>Servicios profesionales de esmaltado semipermanente y Soft Gel.</p>
             <a href="#agenda" class="btn">Reserva tu cita</a>
         </div>
     </section>
@@ -81,8 +81,8 @@
         <div class="container">
             <h2 class="section-title">Agenda tu Cita</h2>
             <div class="schedule-info">
-    <p><i class="fas fa-info-circle"></i> <strong>Horarios especiales:</strong> Martes y Jueves de 14:30 a 16:30. Resto de días de 15:30 a 17:30 y 19:00. Domingos cerrado.</p>
-</div>
+                <p><i class="fas fa-info-circle"></i> <strong>Horarios especiales:</strong> Martes y Jueves de 14:30 a 16:30. Resto de días de 14:30 a 16:30 y 18:00. Domingos cerrado.</p>
+            </div>
             <div class="booking-container">
                 <div class="calendar-container">
                     <div class="calendar-header">
@@ -114,8 +114,7 @@
                             <select id="service" required>
                                 <option value="">Selecciona un servicio</option>
                                 <option value="semipermanente">Esmaltado Semipermanente</option>
-                                <option value="acrilicas">Soft Gel</option>
-                                <option value="nailart">Nail Art</option>
+                                <option value="SoftGel">Soft Gel</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -125,6 +124,42 @@
                                 <!-- Las opciones de hora se generarán con JavaScript -->
                             </select>
                         </div>
+                        
+                        <!-- Sección de Métodos de Pago Agregada -->
+                        <div class="form-group">
+                            <label>Método de Pago</label>
+                            <div class="payment-methods">
+                                <label class="payment-option">
+                                    <input type="radio" name="payment-method" value="efectivo" required>
+                                    <span class="payment-label">
+                                        <i class="fas fa-money-bill-wave"></i>
+                                        Efectivo
+                                    </span>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="payment-method" value="transferencia">
+                                    <span class="payment-label">
+                                        <i class="fas fa-university"></i>
+                                        Transferencia Bancaria
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="payment-info" id="transferencia-info" style="display: none;">
+                            <div class="form-group">
+                                <label><i class="fas fa-info-circle"></i> Datos para transferencia:</label>
+                                <div class="bank-info">
+                                    <p><strong>Banco:</strong> Brou</p>
+                                    <p><strong>Titular:</strong> Lucia Cardozo</p>
+                                    <p><strong>CI:</strong> xxx-xxx-xxx</p>
+                                    <p><strong>N° de Cuenta:</strong> 110610249-00001</p>
+                                    <p><strong>Alias:</strong> LUCIA.CARDOZO</p>
+                                </div>
+                                <p class="note">* Envíanos el comprobante por WhatsApp después de realizar la transferencia</p>
+                            </div>
+                        </div>
+
                         <button type="submit" class="btn">Confirmar Cita</button>
                     </form>
                 </div>
@@ -140,17 +175,17 @@
                     <h3><i class="fas fa-spa"></i> LuciaNails Studio</h3>
                     <p>Transformamos tus uñas en obras de arte con los mejores productos y técnicas profesionales.</p>
                     <div class="whatsapp-float">
-    <a href="https://wa.me/+59891948115" target="_blank" class="whatsapp-button">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-</div>
+                        <a href="https://wa.me/+59891948115" target="_blank" class="whatsapp-button">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
                     <div class="social-links">
                         <a href="https://www.instagram.com/_.lucia_nails._/"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="footer-contact">
                     <h4>Contacto</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> Soiano, Mercedes (Leandro Gomez 82)</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Soriano, Mercedes (Leandro Gomez 82)</p>
                     <p><i class="fas fa-phone"></i> +598 091 948 115</p>
                     <p><i class="fas fa-envelope"></i> lulecardozo49@gmail.com</p>
                     <p><i class="fas fa-clock"></i> Lun-Sáb: 9:00 AM - 7:00 PM</p>
@@ -170,6 +205,36 @@
     </div>
 
     <script src="script.js"></script>
-</body>
+    
+    <!-- Script para manejar los métodos de pago -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const paymentMethods = document.querySelectorAll('input[name="payment-method"]');
+            const transferenciaInfo = document.getElementById('transferencia-info');
 
+            paymentMethods.forEach(method => {
+                method.addEventListener('change', function() {
+                    if (this.value === 'transferencia') {
+                        transferenciaInfo.style.display = 'block';
+                    } else {
+                        transferenciaInfo.style.display = 'none';
+                    }
+                });
+            });
+
+            // También puedes agregar esta funcionalidad al formulario existente en script.js
+            const bookingForm = document.getElementById('booking-form');
+            if (bookingForm) {
+                bookingForm.addEventListener('submit', function(e) {
+                    const selectedPayment = document.querySelector('input[name="payment-method"]:checked');
+                    if (!selectedPayment) {
+                        e.preventDefault();
+                        alert('Por favor selecciona un método de pago');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
 </html>
+

@@ -1,23 +1,23 @@
 // Datos de ejemplo para la galería
 const galleryData = [
-    { id: 1, src: "wppimg/WhatsApp Image 2025-08-27 at 13.47.43 (1).jpeg", category: "semipermanente", title: "Esmaltado semipermanente" },
-    { id: 2, src: "wppimg/WhatsApp Image 2025-08-27 at 13.47.43 (2).jpeg", category: "SoftGel", title: "Uñas SoftGel" },
-    { id: 3, src: "wppimg/WhatsApp Image 2025-08-27 at 13.47.44 (1).jpeg", category: "SoftGel", title: "Diseño" },
-    { id: 4, src: "wppimg/WhatsApp Image 2025-08-27 at 13.47.43.jpeg", category: "SoftGel", title: "Esmaltado SoftGel azul" },
-    { id: 5, src: "wppimg/WhatsApp Image 2025-08-27 at 13.47.44.jpeg", category: "SoftGel", title: "Uñas SoftGel" },
-    { id: 6, src: "wppimg/WhatsApp Image 2025-08-27 at 13.47.46 (4).jpeg", category: "SoftGel", title: "Diseño SoftGel" },
-    { id: 7, src: "wppimg/WhatsApp Image 2025-08-27 at 13.47.46.jpeg", category: "SoftGel", title: "Esmaltado SoftGel" },
-    { id: 8, src: "wppimg/WhatsApp Image 2025-08-27 at 13.47.47.jpeg", category: "SoftGel", title: "Uñas SoftGel" },
-    { id: 9, src: "wppimg/WhatsApp Image 2025-08-27 at 13.47.44 (4).jpeg", category: "SoftGel", title: "Diseño abstracto artístico" },
-    { id: 10, src: "wppimg/WhatsApp Image 2025-08-27 at 13.47.45 (5).jpeg", category: "SoftGel", title: "Diseño abstracto artístico" },
-    { id: 11, src: "wppimg/WhatsApp Image 2025-08-27 at 13.47.45 (2).jpeg", category: "SoftGel", title: "Diseño abstracto artístico" },
-    { id: 12, src: "wppimg/WhatsApp Image 2025-08-27 at 13.47.46 (2).jpeg", category: "semipermanente", title: "Diseño abstracto artístico" },
-    { id: 13, src: "wppimg/WhatsApp Image 2025-08-27 at 13.47.44 (2).jpeg", category: "SoftGel", title: "Diseño abstracto artístico" },
-    { id: 14, src: "wppimg/WhatsApp Image 2025-08-27 at 13.47.45 (1).jpeg", category: "SoftGel", title: "Diseño abstracto artístico" },
-    { id: 15, src: "wppimg/WhatsApp Image 2025-08-27 at 13.47.45 (4).jpeg", category: "SoftGel", title: "Diseño abstracto artístico" },
-    { id: 16, src: "wppimg/WhatsApp Image 2025-08-27 at 13.47.46 (3).jpeg", category: "SoftGel", title: "Diseño abstracto artístico" },
-    { id: 17, src: "wppimg/WhatsApp Image 2025-08-27 at 13.47.46 (5).jpeg", category: "SoftGel", title: "Diseño abstracto artístico" },
-    { id: 18, src: "wppimg/WhatsApp Image 2025-08-27 at 13.47.44 (3).jpeg", category: "SoftGel", title: "Diseño abstracto artístico" },
+    { id: 1, src: "WhatsApp Image 2025-08-27 at 13.47.43 (1).jpeg", category: "semipermanente", title: "Esmaltado semipermanente" },
+    { id: 2, src: "WhatsApp Image 2025-08-27 at 13.47.43 (2).jpeg", category: "SoftGel", title: "Uñas SoftGel" },
+    { id: 3, src: "WhatsApp Image 2025-08-27 at 13.47.44 (1).jpeg", category: "SoftGel", title: "Diseño" },
+    { id: 4, src: "WhatsApp Image 2025-08-27 at 13.47.43.jpeg", category: "SoftGel", title: "Esmaltado SoftGel azul" },
+    { id: 5, src: "WhatsApp Image 2025-08-27 at 13.47.44.jpeg", category: "SoftGel", title: "Uñas SoftGel" },
+    { id: 6, src: "WhatsApp Image 2025-08-27 at 13.47.46 (4).jpeg", category: "SoftGel", title: "Diseño SoftGel" },
+    { id: 7, src: "WhatsApp Image 2025-08-27 at 13.47.46.jpeg", category: "SoftGel", title: "Esmaltado SoftGel" },
+    { id: 8, src: "WhatsApp Image 2025-08-27 at 13.47.47.jpeg", category: "SoftGel", title: "Uñas SoftGel" },
+    { id: 9, src: "WhatsApp Image 2025-08-27 at 13.47.44 (4).jpeg", category: "SoftGel", title: "Diseño abstracto artístico" },
+    { id: 10, src: "WhatsApp Image 2025-08-27 at 13.47.45 (5).jpeg", category: "SoftGel", title: "Diseño abstracto artístico" },
+    { id: 11, src: "WhatsApp Image 2025-08-27 at 13.47.45 (2).jpeg", category: "SoftGel", title: "Diseño abstracto artístico" },
+    { id: 12, src: "WhatsApp Image 2025-08-27 at 13.47.46 (2).jpeg", category: "semipermanente", title: "Diseño abstracto artístico" },
+    { id: 13, src: "WhatsApp Image 2025-08-27 at 13.47.44 (2).jpeg", category: "SoftGel", title: "Diseño abstracto artístico" },
+    { id: 14, src: "WhatsApp Image 2025-08-27 at 13.47.45 (1).jpeg", category: "SoftGel", title: "Diseño abstracto artístico" },
+    { id: 15, src: "WhatsApp Image 2025-08-27 at 13.47.45 (4).jpeg", category: "SoftGel", title: "Diseño abstracto artístico" },
+    { id: 16, src: "WhatsApp Image 2025-08-27 at 13.47.46 (3).jpeg", category: "SoftGel", title: "Diseño abstracto artístico" },
+    { id: 17, src: "WhatsApp Image 2025-08-27 at 13.47.46 (5).jpeg", category: "SoftGel", title: "Diseño abstracto artístico" },
+    { id: 18, src: "WhatsApp Image 2025-08-27 at 13.47.44 (3).jpeg", category: "SoftGel", title: "Diseño abstracto artístico" },
 ];
 
 // Variables globales
@@ -410,4 +410,5 @@ function updateAvailableTimes() {
         options[randomIndex].disabled = true;
         options[randomIndex].textContent += ' (Ocupado)';
     }
+
 }

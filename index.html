@@ -205,36 +205,6 @@
     </div>
 
     <script src="script.js"></script>
-    
-    <!-- Script para manejar los métodos de pago -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const paymentMethods = document.querySelectorAll('input[name="payment-method"]');
-            const transferenciaInfo = document.getElementById('transferencia-info');
-
-            paymentMethods.forEach(method => {
-                method.addEventListener('change', function() {
-                    if (this.value === 'transferencia') {
-                        transferenciaInfo.style.display = 'block';
-                    } else {
-                        transferenciaInfo.style.display = 'none';
-                    }
-                });
-            });
-
-            // También puedes agregar esta funcionalidad al formulario existente en script.js
-            const bookingForm = document.getElementById('booking-form');
-            if (bookingForm) {
-                bookingForm.addEventListener('submit', function(e) {
-                    const selectedPayment = document.querySelector('input[name="payment-method"]:checked');
-                    if (!selectedPayment) {
-                        e.preventDefault();
-                        alert('Por favor selecciona un método de pago');
-                    }
-                });
-            }
-        });
-    </script>
 </body>
 </html>
 

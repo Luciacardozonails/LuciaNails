@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NailArt Studio - Esmaltado Profesional</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header y Navegación -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h1><i class="fas fa-spa"></i> LuciaNails</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#agenda">Agenda</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sección Hero -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h2>Transformamos tus uñas en obras de arte</h2>
+            <p>Servicios profesionales de esmaltado semipermanente, uñas acrílicas y nail art</p>
+            <a href="#agenda" class="btn">Reserva tu cita</a>
+        </div>
+    </section>
+
+    <!-- Sección Servicios -->
+    <section id="servicios" class="services">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-gem"></i>
+                    <h3>Esmaltado Semipermanente</h3>
+                    <p>Duradero y perfecto hasta por 3 semanas sin perder el brillo.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>SoftGel</h3>
+                    <p>Diseños personalizados y creativos para expresar tu estilo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Galería -->
+    <section id="galeria" class="gallery">
+        <div class="container">
+            <h2 class="section-title">Galería de Trabajos</h2>
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="semipermanente">Semipermanente</button>
+                <button class="filter-btn" data-filter="SoftGel">SoftGel</button>
+            </div>
+            <div class="gallery-grid">
+                <!-- Las imágenes se cargarán dinámicamente con JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Agenda -->
+    <section id="agenda" class="booking">
+        <div class="container">
+            <h2 class="section-title">Agenda tu Cita</h2>
+            <div class="schedule-info">
+    <p><i class="fas fa-info-circle"></i> <strong>Horarios especiales:</strong> Martes y Jueves de 14:30 a 16:30. Resto de días de 15:30 a 17:30 y 19:00. Domingos cerrado.</p>
+</div>
+            <div class="booking-container">
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                        <button id="prev-month"><i class="fas fa-chevron-left"></i></button>
+                        <h3 id="current-month"></h3>
+                        <button id="next-month"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="calendar" id="calendar">
+                        <!-- El calendario se generará con JavaScript -->
+                    </div>
+                </div>
+                <div class="form-container">
+                    <h3>Completa tus datos</h3>
+                    <form id="booking-form">
+                        <div class="form-group">
+                            <label for="name">Nombre completo</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Teléfono</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Servicio</label>
+                            <select id="service" required>
+                                <option value="">Selecciona un servicio</option>
+                                <option value="semipermanente">Esmaltado Semipermanente</option>
+                                <option value="acrilicas">Soft Gel</option>
+                                <option value="nailart">Nail Art</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Hora</label>
+                            <select id="time" required>
+                                <option value="">Selecciona una hora</option>
+                                <!-- Las opciones de hora se generarán con JavaScript -->
+                            </select>
+                        </div>
+                        <button type="submit" class="btn">Confirmar Cita</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3><i class="fas fa-spa"></i> LuciaNails Studio</h3>
+                    <p>Transformamos tus uñas en obras de arte con los mejores productos y técnicas profesionales.</p>
+                    <div class="whatsapp-float">
+    <a href="https://wa.me/+59891948115" target="_blank" class="whatsapp-button">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</div>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/_.lucia_nails._/"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Soiano, Mercedes (Leandro Gomez 82)</p>
+                    <p><i class="fas fa-phone"></i> +598 091 948 115</p>
+                    <p><i class="fas fa-envelope"></i> lulecardozo49@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> Lun-Sáb: 9:00 AM - 7:00 PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LuciaNails Studio. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal para imagen de galería -->
+    <div class="modal" id="image-modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-image">
+        <div class="modal-caption" id="modal-caption"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

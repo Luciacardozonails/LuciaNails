@@ -18,17 +18,17 @@ const galleryData = [
     { id: 16, src: "WhatsApp Image 2025-08-27 at 13.47.46 (3).jpeg", category: "SoftGel", title: "Diseño abstracto artístico" },
     { id: 17, src: "WhatsApp Image 2025-08-27 at 13.47.46 (5).jpeg", category: "SoftGel", title: "Diseño abstracto artístico" },
     { id: 18, src: "WhatsApp Image 2025-08-27 at 13.47.44 (3).jpeg", category: "SoftGel", title: "Diseño abstracto artístico" },
-    { id: 19, src: "Imagen de WhatsApp 2025-11-08 a las 17:18:15 (1).jpeg", category: "SoftGel", title: "Diseño SoftGel" },
-    { id: 20, src: "Imagen de WhatsApp 2025-11-08 a las 17:18:15 (2).jpeg", category: "SoftGel", title: "Diseño SoftGel" },
-    { id: 21, src: "Imagen de WhatsApp 2025-11-08 a las 17:18:15.jpeg", category: "SoftGel", title: "Diseño SoftGel" },
-    { id: 22, src: "Imagen de WhatsApp 2025-11-08 a las 17:18:16 (1).jpeg", category: "SoftGel", title: "Diseño SoftGel" },
-    { id: 23, src: "Imagen de WhatsApp 2025-11-08 a las 17:18:16 (2).jpeg", category: "SoftGel", title: "Diseño SoftGel" },
-    { id: 24, src: "Imagen de WhatsApp 2025-11-08 a las 17:18:16 (3).jpeg", category: "SoftGel", title: "Diseño SoftGel" },
-    { id: 25, src: "Imagen de WhatsApp del 8 de noviembre de 2025 a las 17:18:16.jpeg", category: "SoftGel", title: "Diseño SoftGel" },
-    { id: 26, src: "Imagen de WhatsApp 2025-11-08 a las 17:18:17 (1).jpeg", category: "SoftGel", title: "Diseño SoftGel" },
-    { id: 27, src: "Imagen de WhatsApp 2025-11-08 a las 17:18:17 (2).jpeg", category: "SoftGel", title: "Diseño SoftGel" },
-    { id: 28, src: "Imagen de WhatsApp 2025-11-08 a las 17:18:17 (3).jpeg", category: "SoftGel", title: "Diseño SoftGel" },
-    { id: 29, src: "Imagen de WhatsApp del 8 de noviembre de 2025 a las 17:18:17.jpeg", category: "SoftGel", title: "Diseño SoftGel" },
+    { id: 19, src: "WhatsApp Image 2025-11-08 at 17.18.15 (1).jpeg", category: "SoftGel", title: "Diseño SoftGel" },
+    { id: 20, src: "WhatsApp Image 2025-11-08 at 17.18.15 (2).jpeg", category: "SoftGel", title: "Diseño SoftGel" },
+    { id: 21, src: "WhatsApp Image 2025-11-08 at 17.18.15.jpeg", category: "SoftGel", title: "Diseño SoftGel" },
+    { id: 22, src: "WhatsApp Image 2025-11-08 at 17.18.16 (1).jpeg", category: "SoftGel", title: "Diseño SoftGel" },
+    { id: 23, src: "WhatsApp Image 2025-11-08 at 17.18.16 (2).jpeg", category: "SoftGel", title: "Diseño SoftGel" },
+    { id: 24, src: "WhatsApp Image 2025-11-08 at 17.18.16 (3).jpeg", category: "SoftGel", title: "Diseño SoftGel" },
+    { id: 25, src: "WhatsApp Image 2025-11-08 at 17.18.16.jpeg", category: "SoftGel", title: "Diseño SoftGel" },
+    { id: 26, src: "WhatsApp Image 2025-11-08 at 17.18.17 (1).jpeg", category: "SoftGel", title: "Diseño SoftGel" },
+    { id: 27, src: "WhatsApp Image 2025-11-08 at 17.18.17 (2).jpeg", category: "SoftGel", title: "Diseño SoftGel" },
+    { id: 28, src: "WhatsApp Image 2025-11-08 at 17.18.17 (3).jpeg", category: "SoftGel", title: "Diseño SoftGel" },
+    { id: 29, src: "WhatsApp Image 2025-11-08 at 17.18.17.jpeg", category: "SoftGel", title: "Diseño SoftGel" },
 ];
 
 // Variables globales
@@ -451,6 +451,7 @@ function updateAvailableTimes() {
                 });
             }
         });
+
 
 
 

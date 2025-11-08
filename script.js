@@ -372,11 +372,11 @@ function generateTimeOptions() {
     
     // Martes (2) y Jueves (4)
     if (dayOfWeek === 2 || dayOfWeek === 4) {
-        availableTimes = ['14:30', '16:30'];
+        availableTimes = ['15:00', '17:00'];
     } 
     // Resto de los días
     else {
-        availableTimes = ['14:30', '16:30', '18:00'];
+        availableTimes = ['15:00', '17:00', '18:30'];
     }
     
     // Generar las opciones de hora
@@ -451,6 +451,7 @@ function updateAvailableTimes() {
                 });
             }
         });
+
 
 
 

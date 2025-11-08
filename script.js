@@ -271,7 +271,7 @@ function addCalendarLegend() {
     specialLegend.className = 'legend-item';
     specialLegend.innerHTML = `
         <span class="legend-color legend-special"></span>
-        <span>Martes y Jueves: 14:30 - 16:30</span>
+        <span>Martes y Jueves: 15:00 - 17:00</span>
     `;
     
     // Leyenda para días no laborables
@@ -451,6 +451,7 @@ function updateAvailableTimes() {
                 });
             }
         });
+
 
 
 

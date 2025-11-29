@@ -1,19 +1,17 @@
-/* Variables y reset - Tema Navideño Oscuro */
+/* Variables y reset - Tema Navideño */
 :root {
-    --primary: #ff6b6b; /* Rojo navideño más brillante */
-    --secondary: #51cf66; /* Verde navideño brillante */
-    --accent: #ffd43b; /* Dorado brillante */
-    --accent2: #2f9e44; /* Verde oscuro */
-    --dark: #0f0f0f;
-    --light: #1a1a1a;
-    --white: #e9ecef;
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --primary: #c41e3a; /* Rojo navideño */
+    --secondary: #2d5016; /* Verde navideño */
+    --accent: #ffd700; /* Dorado navideño */
+    --accent2: #1a472a; /* Verde oscuro */
+    --dark: #1a1a1a;
+    --light: #fff5f5; /* Fondo rojo muy claro */
+    --white: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
-    --christmas-gold: #ffd43b;
-    --christmas-red: #ff6b6b;
-    --christmas-green: #51cf66;
-    --christmas-dark: #0f0f0f;
-    --christmas-light: #2d2d2d;
+    --christmas-gold: #ffd700;
+    --christmas-red: #c41e3a;
+    --christmas-green: #2d5016;
 }
 
 * {
@@ -24,14 +22,10 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    color: var(--white);
+    color: var(--christmas-green);
     line-height: 1.6;
-    background-color: var(--dark);
+    background-color: var(--light);
     overflow-x: hidden;
-    background-image: 
-        radial-gradient(circle at 20% 80%, rgba(255, 107, 107, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(81, 207, 102, 0.1) 0%, transparent 50%),
-        linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0f0f0f 100%);
 }
 
 /* Efecto de Nieve Responsivo */
@@ -122,6 +116,10 @@ body {
 }
 
 /* Animación alternativa para algunos copos */
+.snowflake.alternate {
+    animation-name: fall2, sway;
+}
+
 @keyframes fall2 {
     0% {
         transform: translateY(-100px) translateX(50px) rotate(0deg);
@@ -139,27 +137,9 @@ body {
     }
 }
 
-.snowflake.alternate {
-    animation-name: fall2, sway;
-}
-
-/* Efecto de profundidad con blur */
-.snowflake.small {
-    filter: blur(0.5px);
-}
-
-.snowflake.medium {
-    filter: blur(0.3px);
-}
-
-.snowflake.large {
-    filter: blur(0.1px);
-}
-
 h1, h2, h3, h4 {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    color: var(--white);
 }
 
 .container {
@@ -190,51 +170,35 @@ h1, h2, h3, h4 {
 
 .btn {
     display: inline-block;
-    background: linear-gradient(135deg, var(--christmas-red), #ff8787);
-    color: var(--dark);
+    background: linear-gradient(135deg, var(--christmas-red), var(--primary));
+    color: var(--white);
     padding: 12px 28px;
     border-radius: 30px;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 500;
     transition: var(--transition);
     border: none;
     cursor: pointer;
     font-size: 1rem;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
-}
-
-.btn::before {
-    content: '🎄';
-    position: absolute;
-    left: -20px;
-    opacity: 0;
-    transition: var(--transition);
 }
 
 .btn:hover {
-    background: linear-gradient(135deg, var(--christmas-green), #69db7c);
-    color: var(--dark);
+    background: linear-gradient(135deg, var(--christmas-green), var(--christmas-red));
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(81, 207, 102, 0.4);
+    box-shadow: var(--shadow);
 }
 
-.btn:hover::before {
-    left: 10px;
-    opacity: 1;
-}
-
-/* Navegación - Estilo Navideño Oscuro */
+/* Navegación */
 .navbar {
-    background: linear-gradient(135deg, rgba(15, 15, 15, 0.95), rgba(42, 42, 42, 0.95));
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(135deg, var(--christmas-green), var(--accent2));
+    box-shadow: var(--shadow);
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    backdrop-filter: blur(10px);
-    border-bottom: 2px solid var(--christmas-red);
+    border-bottom: 3px solid var(--christmas-gold);
 }
 
 .nav-container {
@@ -246,13 +210,13 @@ h1, h2, h3, h4 {
 
 .nav-logo h1 {
     font-size: clamp(1.3rem, 4vw, 1.8rem);
-    color: var(--christmas-gold);
-    text-shadow: 0 0 10px rgba(255, 212, 59, 0.3);
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .nav-logo i {
     margin-right: 0.5rem;
-    color: var(--christmas-red);
+    color: var(--christmas-gold);
 }
 
 .nav-menu {
@@ -262,7 +226,6 @@ h1, h2, h3, h4 {
 
 .nav-menu li {
     margin-left: 1.5rem;
-    position: relative;
 }
 
 .nav-menu a {
@@ -277,24 +240,7 @@ h1, h2, h3, h4 {
 
 .nav-menu a:hover {
     color: var(--christmas-gold);
-    background: rgba(255, 107, 107, 0.1);
-    text-shadow: 0 0 8px rgba(255, 212, 59, 0.5);
-}
-
-.nav-menu a::after {
-    content: '❄️';
-    position: absolute;
-    right: -15px;
-    top: 50%;
-    transform: translateY(-50%);
-    opacity: 0;
-    transition: var(--transition);
-    font-size: 0.8rem;
-}
-
-.nav-menu a:hover::after {
-    opacity: 1;
-    right: -20px;
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .hamburger {
@@ -308,16 +254,14 @@ h1, h2, h3, h4 {
 .hamburger span {
     width: 25px;
     height: 3px;
-    background: var(--christmas-gold);
+    background: var(--white);
     margin: 3px 0;
     transition: var(--transition);
 }
 
-/* Hero Section - Navideño Oscuro */
+/* Hero Section */
 .hero {
-    background: 
-        linear-gradient(rgba(15, 15, 15, 0.8), rgba(42, 42, 42, 0.9)),
-        url('https://images.unsplash.com/photo-1575425186775-b6de7b9bbf56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80') no-repeat center center/cover;
+    background: linear-gradient(rgba(45, 80, 22, 0.7), rgba(196, 30, 58, 0.6)), url('https://images.unsplash.com/photo-1545424920-5dd5c46c1db4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80') no-repeat center center/cover;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -326,30 +270,6 @@ h1, h2, h3, h4 {
     color: var(--white);
     padding: 80px 20px 40px;
     position: relative;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-        radial-gradient(circle at 20% 30%, rgba(255, 107, 107, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(81, 207, 102, 0.1) 0%, transparent 50%);
-    animation: twinkle 4s ease-in-out infinite;
-}
-
-@keyframes twinkle {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.6; }
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
 }
 
 .hero-content h2 {
@@ -357,7 +277,7 @@ h1, h2, h3, h4 {
     font-size: clamp(2rem, 6vw, 3.5rem);
     margin-bottom: 1rem;
     line-height: 1.2;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content p {
@@ -367,24 +287,13 @@ h1, h2, h3, h4 {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Servicios - Tema Navideño Oscuro */
+/* Servicios */
 .services {
     padding: 4rem 0;
-    background: var(--dark);
-    position: relative;
-}
-
-.services::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--christmas-red), var(--christmas-gold), var(--christmas-green));
+    background: var(--white);
 }
 
 .services-grid {
@@ -394,52 +303,38 @@ h1, h2, h3, h4 {
 }
 
 .service-card {
-    background: linear-gradient(135deg, #2d2d2d, #1a1a1a);
+    background: var(--light);
     padding: 1.5rem;
-    border-radius: 15px;
+    border-radius: 10px;
     text-align: center;
     transition: var(--transition);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    border: 1px solid #333;
-    position: relative;
-    overflow: hidden;
-}
-
-.service-card::before {
-    content: '🎅';
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    font-size: 2rem;
-    opacity: 0.1;
-    transform: rotate(15deg);
+    box-shadow: var(--shadow);
+    border: 2px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(135deg, var(--christmas-red), var(--christmas-green)) border-box;
 }
 
 .service-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 15px 40px rgba(255, 107, 107, 0.2);
-    border-color: var(--christmas-red);
+    transform: translateY(-10px);
 }
 
 .service-card i {
     font-size: 2.5rem;
     color: var(--christmas-red);
     margin-bottom: 1rem;
-    text-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
 }
 
 .service-card h3 {
     margin-bottom: 1rem;
     font-size: 1.3rem;
-    color: var(--christmas-gold);
+    color: var(--christmas-green);
 }
 
 .service-card p {
     font-size: 0.95rem;
-    color: var(--white);
 }
 
-/* Galería - Estilo Navideño Oscuro */
+/* Galería */
 .gallery {
     padding: 4rem 0;
     background: var(--light);
@@ -454,21 +349,20 @@ h1, h2, h3, h4 {
 }
 
 .filter-btn {
-    background: #2d2d2d;
+    background: var(--white);
     border: 2px solid var(--christmas-green);
     padding: 8px 16px;
     border-radius: 30px;
     cursor: pointer;
     transition: var(--transition);
     font-size: 0.9rem;
-    color: var(--white);
+    color: var(--christmas-green);
 }
 
 .filter-btn.active, .filter-btn:hover {
     background: linear-gradient(135deg, var(--christmas-red), var(--christmas-green));
-    color: var(--dark);
+    color: var(--white);
     border-color: transparent;
-    font-weight: 600;
 }
 
 .gallery-grid {
@@ -480,17 +374,12 @@ h1, h2, h3, h4 {
 .gallery-item {
     position: relative;
     overflow: hidden;
-    border-radius: 15px;
+    border-radius: 8px;
     aspect-ratio: 1/1;
     cursor: pointer;
-    border: 2px solid #333;
-    background: #2d2d2d;
-    transition: var(--transition);
-}
-
-.gallery-item:hover {
-    border-color: var(--christmas-gold);
-    transform: scale(1.05);
+    border: 3px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(45deg, var(--christmas-red), var(--christmas-gold)) border-box;
 }
 
 .gallery-item img {
@@ -498,38 +387,16 @@ h1, h2, h3, h4 {
     height: 100%;
     object-fit: cover;
     transition: var(--transition);
-    filter: brightness(0.9);
 }
 
 .gallery-item:hover img {
     transform: scale(1.1);
-    filter: brightness(1);
 }
 
-.gallery-item::after {
-    content: '🎄 Ver';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(255, 107, 107, 0.9);
-    color: var(--dark);
-    padding: 8px 16px;
-    border-radius: 20px;
-    opacity: 0;
-    transition: var(--transition);
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-.gallery-item:hover::after {
-    opacity: 1;
-}
-
-/* Agenda - Estilo Navideño Oscuro */
+/* Agenda */
 .booking {
     padding: 4rem 0;
-    background: var(--dark);
+    background: var(--white);
 }
 
 .booking-container {
@@ -539,12 +406,12 @@ h1, h2, h3, h4 {
 }
 
 .calendar-container {
-    background: linear-gradient(135deg, #2d2d2d, #1a1a1a);
+    background: var(--light);
     padding: 1.5rem;
-    border-radius: 15px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
     order: 2;
-    border: 1px solid #333;
+    border: 2px solid var(--christmas-red);
 }
 
 .calendar-header {
@@ -555,8 +422,8 @@ h1, h2, h3, h4 {
 }
 
 .calendar-header button {
-    background: linear-gradient(135deg, var(--christmas-red), #ff8787);
-    color: var(--dark);
+    background: linear-gradient(135deg, var(--christmas-red), var(--primary));
+    color: var(--white);
     border: none;
     width: 30px;
     height: 30px;
@@ -567,18 +434,16 @@ h1, h2, h3, h4 {
     justify-content: center;
     font-size: 0.8rem;
     transition: var(--transition);
-    font-weight: bold;
 }
 
 .calendar-header button:hover {
     transform: scale(1.1);
-    background: linear-gradient(135deg, var(--christmas-green), #69db7c);
 }
 
 .calendar-header h3 {
     font-size: 1.1rem;
     text-align: center;
-    color: var(--christmas-gold);
+    color: var(--christmas-green);
 }
 
 .calendar {
@@ -603,43 +468,37 @@ h1, h2, h3, h4 {
     transition: var(--transition);
     font-size: 0.9rem;
     position: relative;
-    border: 1px solid transparent;
-    color: var(--white);
 }
 
 .calendar-date:hover {
     background: var(--christmas-gold);
     color: var(--dark);
-    border-color: var(--christmas-red);
 }
 
 .calendar-date.selected {
-    background: linear-gradient(135deg, var(--christmas-red), #ff8787);
-    color: var(--dark);
-    border-color: var(--christmas-gold);
-    font-weight: bold;
+    background: linear-gradient(135deg, var(--christmas-red), var(--primary));
+    color: var(--white);
 }
 
 .calendar-date.disabled {
-    color: #666;
+    color: #ccc;
     cursor: not-allowed;
-    background: #333;
 }
 
 .form-container {
-    background: linear-gradient(135deg, #2d2d2d, #1a1a1a);
+    background: var(--light);
     padding: 1.5rem;
-    border-radius: 15px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
     order: 1;
-    border: 1px solid #333;
+    border: 2px solid var(--christmas-green);
 }
 
 .form-container h3 {
     margin-bottom: 1.5rem;
     text-align: center;
     font-size: 1.3rem;
-    color: var(--christmas-gold);
+    color: var(--christmas-red);
 }
 
 .form-group {
@@ -651,53 +510,23 @@ h1, h2, h3, h4 {
     margin-bottom: 0.5rem;
     font-weight: 500;
     font-size: 0.95rem;
-    color: var(--white);
+    color: var(--christmas-green);
 }
 
 .form-group input, .form-group select {
     width: 100%;
     padding: 12px;
-    border: 1px solid #444;
-    border-radius: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
-    transition: var(--transition);
-    background: #333;
-    color: var(--white);
 }
 
-.form-group input:focus, .form-group select:focus {
-    outline: none;
-    border-color: var(--christmas-red);
-    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
-    background: #3a3a3a;
-}
-
-/* Footer - Estilo Navideño Oscuro */
+/* Footer */
 footer {
-    background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+    background: linear-gradient(135deg, var(--christmas-green), var(--accent2));
     color: var(--white);
     padding: 3rem 0 1rem;
-    position: relative;
-    overflow: hidden;
-    border-top: 2px solid var(--christmas-red);
-}
-
-footer::before {
-    content: '🎄✨🎅🌟';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    font-size: 1.5rem;
-    opacity: 0.1;
-    animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(180deg); }
 }
 
 .footer-content {
@@ -705,21 +534,17 @@ footer::before {
     grid-template-columns: 1fr;
     gap: 2rem;
     margin-bottom: 2rem;
-    position: relative;
-    z-index: 1;
 }
 
 .footer-info h3 {
     color: var(--christmas-gold);
     margin-bottom: 1rem;
     font-size: 1.5rem;
-    text-shadow: 0 0 10px rgba(255, 212, 59, 0.3);
 }
 
 .footer-info p {
     margin-bottom: 1.5rem;
     font-size: 0.95rem;
-    color: #ccc;
 }
 
 .social-links {
@@ -738,14 +563,11 @@ footer::before {
     font-size: 1.2rem;
     border-radius: 50%;
     transition: var(--transition);
-    border: 1px solid #333;
 }
 
 .social-links a:hover {
     background: var(--christmas-red);
-    transform: translateY(-3px) scale(1.1);
-    border-color: var(--christmas-gold);
-    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+    transform: translateY(-3px);
 }
 
 .footer-contact h4 {
@@ -759,7 +581,6 @@ footer::before {
     display: flex;
     align-items: center;
     font-size: 0.95rem;
-    color: #ccc;
 }
 
 .footer-contact i {
@@ -771,19 +592,72 @@ footer::before {
 .footer-bottom {
     text-align: center;
     padding-top: 1.5rem;
-    border-top: 1px solid #333;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
     font-size: 0.9rem;
-    position: relative;
-    z-index: 1;
-    color: #999;
 }
 
-/* Botón flotante de WhatsApp - Navideño Oscuro */
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    display: block;
+    margin: auto;
+    max-width: 95%;
+    max-height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: #f1f1f1;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 2001;
+    background: rgba(0, 0, 0, 0.5);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    text-align: center;
+    width: 90%;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.95rem;
+}
+
+/* Botón flotante de WhatsApp */
 .whatsapp-float {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    z-index: 10000; /* Por encima de la nieve */
+    z-index: 10000;
 }
 
 .whatsapp-button {
@@ -796,45 +670,97 @@ footer::before {
     color: white;
     border-radius: 50%;
     text-align: center;
-    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
     text-decoration: none;
-    border: 2px solid var(--dark);
-    position: relative;
-    overflow: hidden;
-}
-
-.whatsapp-button::before {
-    content: '🎄';
-    position: absolute;
-    font-size: 0.8rem;
-    opacity: 0;
-    transition: var(--transition);
 }
 
 .whatsapp-button:hover {
     background: linear-gradient(135deg, #128c7e, #25d366);
-    transform: scale(1.1) rotate(10deg);
-    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.7);
-}
-
-.whatsapp-button:hover::before {
-    opacity: 1;
-    animation: bounce 0.5s ease-in-out;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
+    transform: scale(1.1);
 }
 
 .whatsapp-button i {
     font-size: 30px;
-    transition: var(--transition);
 }
 
-.whatsapp-button:hover i {
-    transform: scale(1.1);
+/* Estilos para los días no laborables (Domingo) */
+.calendar-date.non-working {
+    background-color: #f8f8f8;
+    color: #ccc;
+    cursor: not-allowed;
+    text-decoration: line-through;
+}
+
+/* Estilos para los días con horario especial */
+.calendar-date.special-day {
+    background-color: #ffe6f2;
+    color: var(--christmas-red);
+    font-weight: bold;
+}
+
+/* Indicador visual para días con horarios especiales */
+.calendar-date.special-day::after {
+    content: '*';
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    font-size: 10px;
+}
+
+/* Leyenda para los horarios especiales */
+.calendar-legend {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 0.8rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+}
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.legend-special {
+    background-color: #ffe6f2;
+}
+
+.legend-non-working {
+    background-color: #f8f8f8;
+}
+
+.schedule-info {
+    color: var(--christmas-red);
+    background-color: #f0f9ff;
+    border-left: 4px solid var(--accent);
+    padding: 12px 15px;
+    margin-bottom: 25px;
+    border-radius: 4px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.95rem;
+}
+
+.schedule-info p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.schedule-info i {
+    color: var(--christmas-red);
+    margin-right: 10px;
+    font-size: 1.1rem;
 }
 
 /* =========================== */
@@ -908,13 +834,6 @@ footer::before {
     .snowflake.large { font-size: 1.8em; }
 }
 
-/* Pantallas muy grandes */
-@media (min-width: 1200px) {
-    .nav-menu li {
-        margin-left: 2rem;
-    }
-}
-
 /* Móviles pequeños */
 @media (max-width: 480px) {
     /* Menos nieve en móviles para mejor rendimiento */
@@ -937,15 +856,6 @@ footer::before {
     
     /* Menos nieve en landscape para mejor rendimiento */
     .snowflake { font-size: 0.8em; opacity: 0.6; }
-}
-
-/* Ajustes para modo oscuro - Mejor contraste */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --white: #e9ecef;
-        --light: #1a1a1a;
-        --dark: #0f0f0f;
-    }
 }
 
 /* Mejoras de accesibilidad - Reducir movimiento */
@@ -977,11 +887,4 @@ footer::before {
     
     /* Menos nieve en táctiles para mejor rendimiento */
     .snowflake { font-size: 0.8em; opacity: 0.6; }
-}
-
-/* Dispositivos de baja capacidad */
-@media (max-width: 768px) and (orientation: portrait) {
-    .snowflake {
-        animation-duration: 6s, 2s !important;
-    }
 }

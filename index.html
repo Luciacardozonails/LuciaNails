@@ -213,8 +213,91 @@
     </div>
 
     <script src="script.js"></script>
+
+    <script>
+// Efecto de nieve responsivo
+document.addEventListener('DOMContentLoaded', function() {
+    createSnowflakes();
+    
+    // Recrear nieve al redimensionar para adaptarse a la pantalla
+    window.addEventListener('resize', function() {
+        document.querySelectorAll('.snowflake').forEach(flake => flake.remove());
+        createSnowflakes();
+    });
+});
+
+function createSnowflakes() {
+    const snowContainer = document.createElement('div');
+    snowContainer.className = 'snow-container';
+    document.body.appendChild(snowContainer);
+    
+    const snowflakeCount = getSnowflakeCount();
+    const types = ['❄', '❅', '❆', '•', '*'];
+    
+    for (let i = 0; i < snowflakeCount; i++) {
+        createSnowflake(snowContainer, types, i);
+    }
+}
+
+function getSnowflakeCount() {
+    const width = window.innerWidth;
+    if (width < 768) return 30;  // Móviles
+    if (width < 1024) return 50; // Tablets
+    return 80; // Desktop
+}
+
+function createSnowflake(container, types, index) {
+    const snowflake = document.createElement('div');
+    snowflake.className = 'snowflake';
+    
+    // Tipo aleatorio
+    const randomType = types[Math.floor(Math.random() * types.length)];
+    snowflake.textContent = randomType;
+    
+    // Tamaño aleatorio
+    const sizes = ['small', 'medium', 'large'];
+    const randomSize = sizes[Math.floor(Math.random() * sizes.length)];
+    snowflake.classList.add(randomSize);
+    
+    // Tipo de animación aleatorio
+    const animationTypes = ['type1', 'type2', 'type3', 'type4', 'type5'];
+    const randomAnimType = animationTypes[Math.floor(Math.random() * animationTypes.length)];
+    snowflake.classList.add(randomAnimType);
+    
+    // Animación alternativa para algunos
+    if (Math.random() > 0.7) {
+        snowflake.classList.add('alternate');
+    }
+    
+    // Posición inicial aleatoria
+    const startPosition = Math.random() * 100;
+    snowflake.style.left = startPosition + 'vw';
+    
+    // Retraso aleatorio
+    const delay = Math.random() * 5;
+    snowflake.style.animationDelay = delay + 's, ' + (delay * 0.5) + 's';
+    
+    // Duración aleatoria basada en el tamaño
+    let duration = 8 + (Math.random() * 4);
+    if (randomSize === 'small') duration += 2;
+    if (randomSize === 'large') duration -= 2;
+    
+    snowflake.style.animationDuration = duration + 's, ' + (3 + Math.random() * 2) + 's';
+    
+    container.appendChild(snowflake);
+    
+    // Remover el copo cuando termine la animación y crear uno nuevo
+    setTimeout(() => {
+        if (snowflake.parentNode) {
+            snowflake.remove();
+            createSnowflake(container, types, index);
+        }
+    }, (duration + delay) * 1000);
+}
+</script>
     
 </body>
 </html>
+
 
 

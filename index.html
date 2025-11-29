@@ -214,7 +214,35 @@
 
     <script src="script.js"></script>
 
-   <script>
+  <script>
+    // Menú hamburguesa para móviles
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Cerrar menú al hacer clic fuera
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    }
+});
 // Efecto de nieve responsivo
 document.addEventListener('DOMContentLoaded', function() {
     createSnowflakes();
@@ -295,9 +323,18 @@ function createSnowflake(container, types, index) {
     }, (duration + delay) * 1000);
 }
 </script>
+    <!-- Modal para la galería - Agregar antes de cerrar el body -->
+<div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <button class="modal-nav modal-prev">&#10094;</button>
+    <button class="modal-nav modal-next">&#10095;</button>
+    <img class="modal-content" id="modalImage">
+    <div id="caption" class="modal-caption"></div>
+</div>
     
 </body>
 </html>
+
 
 
 

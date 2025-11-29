@@ -453,6 +453,302 @@ function updateAvailableTimes() {
         });
 
 
+// Efecto de nieve responsivo y funcionalidad del modal
+document.addEventListener('DOMContentLoaded', function() {
+    // Menú hamburguesa
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Cerrar menú al hacer clic fuera
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    }
+
+    // Funcionalidad del Modal de Galería
+    initGalleryModal();
+    
+    // Efecto de nieve
+    createSnowflakes();
+    
+    // Recrear nieve al redimensionar
+    window.addEventListener('resize', function() {
+        document.querySelectorAll('.snowflake').forEach(flake => flake.remove());
+        createSnowflakes();
+    });
+});
+
+// Galería Modal
+function initGalleryModal() {
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const captionText = document.getElementById('caption');
+    const closeBtn = document.querySelector('.close');
+    const prevBtn = document.querySelector('.modal-prev');
+    const nextBtn = document.querySelector('.modal-next');
+    
+    let currentImageIndex = 0;
+    let galleryImages = [];
+    
+    // Obtener todas las imágenes de la galería
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    
+    if (galleryItems.length === 0) return;
+    
+    // Crear array de imágenes
+    galleryItems.forEach((item, index) => {
+        const img = item.querySelector('img');
+        if (img) {
+            galleryImages.push({
+                src: img.src,
+                alt: img.alt || `Imagen ${index + 1}`
+            });
+            
+            // Agregar evento click a cada imagen
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                currentImageIndex = index;
+                openModal(currentImageIndex);
+            });
+        }
+    });
+    
+    // Abrir modal
+    function openModal(index) {
+        if (!modal || !modalImg) return;
+        
+        const imageData = galleryImages[index];
+        if (!imageData) return;
+        
+        // Mostrar loading
+        modalImg.style.display = 'none';
+        if (!document.querySelector('.modal-loading')) {
+            const loading = document.createElement('div');
+            loading.className = 'modal-loading';
+            loading.innerHTML = '⏳';
+            modal.querySelector('.modal-content').appendChild(loading);
+        }
+        
+        // Cargar imagen
+        modalImg.onload = function() {
+            modalImg.style.display = 'block';
+            const loading = document.querySelector('.modal-loading');
+            if (loading) loading.remove();
+        };
+        
+        modalImg.onerror = function() {
+            const loading = document.querySelector('.modal-loading');
+            if (loading) {
+                loading.innerHTML = '❌ Error';
+                loading.style.color = 'var(--christmas-red)';
+            }
+        };
+        
+        modalImg.src = imageData.src;
+        modalImg.alt = imageData.alt;
+        
+        if (captionText) {
+            captionText.textContent = imageData.alt;
+        }
+        
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevenir scroll
+        
+        // Actualizar estado de botones de navegación
+        updateNavButtons();
+    }
+    
+    // Cerrar modal
+    function closeModal() {
+        if (modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restaurar scroll
+        }
+    }
+    
+    // Navegar a imagen anterior
+    function prevImage() {
+        if (currentImageIndex > 0) {
+            currentImageIndex--;
+            openModal(currentImageIndex);
+        }
+    }
+    
+    // Navegar a imagen siguiente
+    function nextImage() {
+        if (currentImageIndex < galleryImages.length - 1) {
+            currentImageIndex++;
+            openModal(currentImageIndex);
+        }
+    }
+    
+    // Actualizar estado de botones de navegación
+    function updateNavButtons() {
+        if (prevBtn) {
+            prevBtn.style.display = currentImageIndex > 0 ? 'flex' : 'none';
+        }
+        if (nextBtn) {
+            nextBtn.style.display = currentImageIndex < galleryImages.length - 1 ? 'flex' : 'none';
+        }
+    }
+    
+    // Event Listeners
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+    
+    if (prevBtn) {
+        prevBtn.addEventListener('click', prevImage);
+    }
+    
+    if (nextBtn) {
+        nextBtn.addEventListener('click', nextImage);
+    }
+    
+    // Cerrar modal al hacer clic fuera de la imagen
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    }
+    
+    // Navegación con teclado
+    document.addEventListener('keydown', function(e) {
+        if (modal.style.display === 'block') {
+            switch(e.key) {
+                case 'Escape':
+                    closeModal();
+                    break;
+                case 'ArrowLeft':
+                    prevImage();
+                    break;
+                case 'ArrowRight':
+                    nextImage();
+                    break;
+            }
+        }
+    });
+    
+    // Soporte para swipe en móviles
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    if (modal) {
+        modal.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        modal.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+    }
+    
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                // Swipe izquierda - siguiente imagen
+                nextImage();
+            } else {
+                // Swipe derecha - imagen anterior
+                prevImage();
+            }
+        }
+    }
+}
+
+// Efecto de nieve (código existente)
+function createSnowflakes() {
+    const snowContainer = document.createElement('div');
+    snowContainer.className = 'snow-container';
+    document.body.appendChild(snowContainer);
+    
+    const snowflakeCount = getSnowflakeCount();
+    const types = ['❄', '❅', '❆', '•', '*'];
+    
+    for (let i = 0; i < snowflakeCount; i++) {
+        createSnowflake(snowContainer, types, i);
+    }
+}
+
+function getSnowflakeCount() {
+    const width = window.innerWidth;
+    if (width < 768) return 30;  // Móviles
+    if (width < 1024) return 50; // Tablets
+    return 80; // Desktop
+}
+
+function createSnowflake(container, types, index) {
+    const snowflake = document.createElement('div');
+    snowflake.className = 'snowflake';
+    
+    // Tipo aleatorio
+    const randomType = types[Math.floor(Math.random() * types.length)];
+    snowflake.textContent = randomType;
+    
+    // Tamaño aleatorio
+    const sizes = ['small', 'medium', 'large'];
+    const randomSize = sizes[Math.floor(Math.random() * sizes.length)];
+    snowflake.classList.add(randomSize);
+    
+    // Tipo de animación aleatorio
+    const animationTypes = ['type1', 'type2', 'type3', 'type4', 'type5'];
+    const randomAnimType = animationTypes[Math.floor(Math.random() * animationTypes.length)];
+    snowflake.classList.add(randomAnimType);
+    
+    // Animación alternativa para algunos
+    if (Math.random() > 0.7) {
+        snowflake.classList.add('alternate');
+    }
+    
+    // Posición inicial aleatoria
+    const startPosition = Math.random() * 100;
+    snowflake.style.left = startPosition + 'vw';
+    
+    // Retraso aleatorio
+    const delay = Math.random() * 5;
+    snowflake.style.animationDelay = delay + 's, ' + (delay * 0.5) + 's';
+    
+    // Duración aleatoria basada en el tamaño
+    let duration = 8 + (Math.random() * 4);
+    if (randomSize === 'small') duration += 2;
+    if (randomSize === 'large') duration -= 2;
+    
+    snowflake.style.animationDuration = duration + 's, ' + (3 + Math.random() * 2) + 's';
+    
+    container.appendChild(snowflake);
+    
+    // Remover el copo cuando termine la animación y crear uno nuevo
+    setTimeout(() => {
+        if (snowflake.parentNode) {
+            snowflake.remove();
+            createSnowflake(container, types, index);
+        }
+    }, (duration + delay) * 1000);
+}
+
 
 
 
